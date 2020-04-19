@@ -3,7 +3,9 @@ package automower
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"net/http"
+	"strconv"
 )
 
 func (c *Client) authenticate(user, password string) error {
@@ -21,6 +23,10 @@ func (c *Client) authenticate(user, password string) error {
 	}
 
 	defer res.Body.Close()
+
+	if res.StatusCode > 299 {
+		return errors.New("Authentication failed: " + strconv.Itoa(res.StatusCode))
+	}
 
 	var m message
 	err = json.NewDecoder(res.Body).Decode(&m)
