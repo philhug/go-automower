@@ -18,3 +18,6 @@ fmt.Println(mowers)
 
 ## Documentation
 [https://pkg.go.dev/github.com/philhug/go-automower/pkg/automower?tab=doc](https://pkg.go.dev/github.com/philhug/go-automower/pkg/automower?tab=doc)
+
+## TODO
+Switch to official API

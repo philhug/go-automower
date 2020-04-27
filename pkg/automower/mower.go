@@ -37,8 +37,8 @@ func (c *Client) getMowerStatus(id string) (*MowerStatus, error) {
 	return &mow, nil
 }
 
-func (c *Client) controlMower(id string, action string) error {
-	ar := actionRequest{action, "timer"}
+func (c *Client) controlMower(id string, action, duration string) error {
+	ar := actionRequest{action, duration}
 
 	b, err := json.Marshal(ar)
 	if err != nil {
