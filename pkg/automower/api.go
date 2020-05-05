@@ -14,7 +14,7 @@ func (c *Client) StartWithTimer(m *Mower) error {
 }
 
 func (c *Client) StartWithDuration(m *Mower, d time.Duration) error {
-	s := strconv.Itoa(int(d.Seconds()))
+	s := strconv.Itoa(int(d.Minutes()))
 	return c.controlMower(m.ID, mowerActionStart, s)
 }
 
